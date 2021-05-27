@@ -11,9 +11,12 @@ class Form extends React.Component {
     }
     this.updateState = this.updateState.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleRestButtons = this.handleRestButtons.bind(this);
 
   }
 
+
+  //Changes Classes States
   updateState(event){
     this.setState({[event.target.name]:event.target.value})
   }
@@ -22,17 +25,33 @@ class Form extends React.Component {
 
   async handleSubmit(event){
     event.preventDefault();
-    const agentCall = await superagent.get(this.state.urlInput)
-    console.log(agentCall);
-    this.props.addResult(agentCall.body)
+
+    const agentCall = await superagent[this.state.method](this.state.urlInput)
+    //console.log(agentCall);
+    this.props.addResult(agentCall.body.results)
   }
+
+  handleRestButtons(e, method){
+    e.preventDefault();
+    this.setState({method: method})
+
+  }
+
 
   render() {
     return (
       <>
       <form onSubmit= {this.handleSubmit}>
         <input name="urlInput" value = {this.state.urlInput} onChange = {this.updateState}></input>
+        <button onClick={(e)=>this.handleRestButtons(e, "get")}>GET</button>
+        <button onClick={(e)=>this.handleRestButtons(e, "post")}>POST</button>
+        <button onClick={(e)=>this.handleRestButtons(e, "update")}>UPDATE</button>
+        <button onClick={(e)=>this.handleRestButtons(e, "delete")}>DELETE</button>
+
+
         <button type= "submit">Hit That Route!</button>
+
+        
 
       </form>
       </>
