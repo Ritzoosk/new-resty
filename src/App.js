@@ -3,6 +3,51 @@ import Form from "./components/form/Form.js";
 import History from "./components/history/History.js"
 import Results from './components/results/Results.js';
 
+import { BrowserRouter } from 'react-router-dom'
+
+// function App() {
+//     return (
+//       <B
+//     )
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Class based//
+
 
 class App extends React.Component {
   constructor(props){
