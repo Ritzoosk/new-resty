@@ -1,8 +1,5 @@
 import React from "react";
 import { BrowserRouter } from 'react-router-dom'
-import Form from "./form/Form.js"
-import History from "./history/History.js"
-import Results from './results/Results.js'
 import Header from './Header.js'
 import Main from './Main.js'
 

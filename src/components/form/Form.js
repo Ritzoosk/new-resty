@@ -28,7 +28,7 @@ class Form extends React.Component {
 
     const agentCall = await superagent[this.state.method](this.state.urlInput)
     //console.log(agentCall);
-    this.props.addResult(agentCall.body.results)
+    this.props.addResult({method: this.state.method, url: this.state.urlInput})
   }
 
   handleRestButtons(e, method){
