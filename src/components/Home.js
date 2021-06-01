@@ -3,17 +3,15 @@ import Form from "./form/Form.js"
 import History from "./history/History.js"
 import Results from './results/Results.js'
 
-class Home extends React.Component {
+const Home = (props)=> {
 
     
-      render() {
         return (
           <div className="App">
             <h1>Home</h1>
-            <Form addResult={this.props.addResult}/>
+            <Form addResult={props.addResult} updateState={props.updateState} urlInput={props.urlInput} method= {props.method} />
           </div>
         )
-      }
 }
 
 export default Home;
